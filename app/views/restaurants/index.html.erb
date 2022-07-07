@@ -1,4 +1,7 @@
-<h1>Restaurants' List</h1>
-<%= restaurants.each do |restaurant| %>
-  <h5><%= restaurant.name restaurant.rating%></h5>
-  <h5><%=  %></h5>
+<h1>Restaurants Directory</h1>
+<% @restaurants.each do |restaurant| %>
+  <h5><%= restaurant.name %></h5>
+  <p><%= restaurant.address %></p>
+  <p><%= restaurant.phone_number %></p>
+  <p><%= restaurant.category %></p>
+<% end %>

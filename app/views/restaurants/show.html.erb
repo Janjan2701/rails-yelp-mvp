@@ -1,7 +1,12 @@
 <h1><%= @restaurant.name %></h1>
-<p><%= restaurant.address %></p>
-<p><%= restaurant.phone_number %></p>
-<p><%= restaurant.category %></p>
-<%= link_to 'back', restaurants_path %>
-<%= link_to 'edit', edit_restaurant_path(@restaurant) %>
-<%= link_to 'delete', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %> <%= review.rating %></p>
+<% end %>
+
+<%= link_to 'back', restaurants_path, class: "btn btn-secondary" %>
+<%= link_to 'edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to 'add a new review', new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
+<%= link_to 'delete', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
